@@ -138,11 +138,6 @@ pipeline {
           }
         }
       }
-      stage('crmp-s01') {
-        steps {
-          sh 'ssh crmp-s01 `hostname`'
-        }
-      }
     }
     stage('Barel - start') {
       steps {

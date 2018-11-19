@@ -41,12 +41,37 @@ pipeline {
       }
     }
     stage('StopServer - Linux') {
-      steps {
-        sh 'ssh server stop server'
-        catchError() {
-          sh 'echo pokus'
+      parallel {
+        stage('pbcrmao01') {
+          steps {
+            sh 'ssh pbcrmao01 `echo restart_server.ksh`'
+          }
         }
-
+        stage('pbcrmao02') {
+          steps {
+            sh 'ssh pbcrmao02 `echo restart_server.ksh`'
+          }
+        }
+        stage('pbcrmao01') {
+          steps {
+            sh 'ssh pbcrmao03 `echo restart_server.ksh`'
+          }
+        }
+        stage('ppcrmao01') {
+          steps {
+            sh 'ssh ppcrmao01 `echo restart_server.ksh`'
+          }
+        }
+        stage('ppcrmao02') {
+          steps {
+            sh 'ssh ppcrmao02 `echo restart_server.ksh`'
+          }
+        }
+        stage('ppcrmao03') {
+          steps {
+            sh 'ssh ppcrmao03 `echo restart_server.ksh`'
+          }
+        }
       }
     }
   }

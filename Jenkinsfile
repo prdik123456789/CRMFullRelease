@@ -79,5 +79,15 @@ pipeline {
         }
       }
     }
+    stage('Kontrola zaslepky') {
+      steps {
+        sh 'echo Kontrola zaslepek'
+      }
+    }
+    stage('Barel - start') {
+      steps {
+        echo 'Barel - start'
+      }
+    }
   }
 }

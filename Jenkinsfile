@@ -5,7 +5,7 @@ pipeline {
       parallel {
         stage('Disable crontab') {
           steps {
-            sh 'ssh dpcrmvc31 crontab -l > ~/remote/stage/bkp_cron_`whoami`_`hostname`_$(date +%Y%m%d)'
+            sh 'ssh echo "Disable Crontab"'
           }
         }
         stage('pbcrmao01') {

@@ -144,5 +144,24 @@ pipeline {
         echo 'Barel - start'
       }
     }
+    stage('Stop Legodo Serveru') {
+      parallel {
+        stage('Stop Legodo Serveru') {
+          steps {
+            echo 'Stop Legodo Serveru'
+          }
+        }
+        stage('PV1CRMBI1001') {
+          steps {
+            bat(script: 'stop_legodo.bat', returnStatus: true)
+          }
+        }
+        stage('PV1CRMBI2001') {
+          steps {
+            bat(script: 'stop_legodo.bat', returnStatus: true)
+          }
+        }
+      }
+    }
   }
 }

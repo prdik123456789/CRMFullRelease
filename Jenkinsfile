@@ -43,6 +43,10 @@ pipeline {
     stage('StopServer - Linux') {
       steps {
         sh 'ssh server stop server'
+        catchError() {
+          sh 'echo pokus'
+        }
+
       }
     }
   }

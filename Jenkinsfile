@@ -74,5 +74,10 @@ pipeline {
         }
       }
     }
+    stage('Vystaveni zaslepek') {
+      steps {
+        bat(script: 'pokus', returnStatus: true)
+      }
+    }
   }
 }

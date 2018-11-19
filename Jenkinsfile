@@ -3,11 +3,6 @@ pipeline {
   stages {
     stage('Disable crontab') {
       parallel {
-        stage('Disable crontab') {
-          steps {
-            sh 'ssh echo "Disable Crontab"'
-          }
-        }
         stage('pbcrmao01') {
           steps {
             sh 'ssh pbcrmao01 `hostname`'

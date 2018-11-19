@@ -40,6 +40,11 @@ pipeline {
         sh 'stopDB jobs'
       }
     }
+    stage('Vystaveni zaslepek') {
+      steps {
+        bat(script: 'pokus', returnStatus: true)
+      }
+    }
     stage('StopServer - Linux') {
       parallel {
         stage('pbcrmao01') {
@@ -72,11 +77,6 @@ pipeline {
             sh 'ssh ppcrmao03 `echo restart_server.ksh`'
           }
         }
-      }
-    }
-    stage('Vystaveni zaslepek') {
-      steps {
-        bat(script: 'pokus', returnStatus: true)
       }
     }
   }

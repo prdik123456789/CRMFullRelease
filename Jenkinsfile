@@ -293,5 +293,10 @@ pipeline {
         echo 'Zavolat v Siebelu'
       }
     }
+    stage('Workflow Processes') {
+      steps {
+        echo 'A'
+      }
+    }
   }
 }

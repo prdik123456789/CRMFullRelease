@@ -251,16 +251,16 @@ pipeline {
         }
         stage('Admin stuff') {
           steps {
-            bat(script: 'deploy_files.bat', returnStatus: true)
-            node(label: 'JH')
+            node(label: 'JH') {
+              bat(script: 'deploy_files.bat', returnStatus: true)
+            }
           }
         }
         stage('BROWSER SCRIPTS, PUBLIC') {
           steps {
             node(label: 'JH') {
-              echo 'pokus'
+              bat(script: 'deploy_files.bat', returnStatus: true)
             }
-
           }
         }
       }

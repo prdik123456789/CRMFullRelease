@@ -237,5 +237,10 @@ pipeline {
         echo 'Hold Siebel Job'
       }
     }
+    stage('Kontrola stop Siebel procesu') {
+      steps {
+        sh 'ssh pbcrmao01 echo kontrola zastaveni siebelu'
+      }
+    }
   }
 }

@@ -249,7 +249,7 @@ pipeline {
             echo 'Deploy'
           }
         }
-        stage('Admin') {
+        stage('Admin stuff') {
           steps {
             bat(script: 'deploy_files.bat', returnStatus: true)
             node(label: 'JH')

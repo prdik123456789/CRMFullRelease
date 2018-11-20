@@ -396,7 +396,7 @@ ssh ppcrmcl01 echo /srv/bin/${CSAS_ENV}/crm/adm/shell/deployADM.ksh 1-1H4UUGQO''
         sh 'ssh ppcrmcl01 /srv/bin/${CSAS_ENV}/crm/adm/shell/gentrig.ksh crmp-s01'
       }
     }
-    stage('StopServer - Linux') {
+    stage('StopServer2 - Linux') {
       parallel {
         stage('pbcrmao01') {
           steps {

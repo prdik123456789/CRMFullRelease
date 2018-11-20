@@ -288,5 +288,10 @@ pipeline {
         sh 'ssh pbcrmcl01 /srv/bin/${CSAS_ENV}/crm/adm/shell/imp_rep_sync.ksh step2'
       }
     }
+    stage('Tasks') {
+      steps {
+        echo 'Zavolat v Siebelu'
+      }
+    }
   }
 }

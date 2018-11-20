@@ -250,10 +250,9 @@ pipeline {
           }
         }
         stage('Admin') {
-          node(label: 'JH') {
-            steps {
-              bat(script: 'deploy_files.bat', returnStatus: true)
-            }
+          steps {
+            bat(script: 'deploy_files.bat', returnStatus: true)
+            node(label: 'JH')
           }
         }
       }

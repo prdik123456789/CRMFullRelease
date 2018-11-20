@@ -227,9 +227,14 @@ pipeline {
         }
       }
     }
-    stage('Kontrola odchozích front') {
+    stage('Kontrola odchozÃ­ch front') {
       steps {
         sh 'ssh ppcrmcl01 echo "kontrola odchozich front v DB"'
+      }
+    }
+    stage('Hold Siebel Job C4 Report Scheduller') {
+      steps {
+        echo 'Hold Siebel Job'
       }
     }
   }

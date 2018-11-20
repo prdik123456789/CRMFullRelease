@@ -303,5 +303,10 @@ pipeline {
         sh 'ssh ppcrmcl01 echo "spustit w18p_before_ADM_LST_OF_VAL.sql"'
       }
     }
+    stage('ADM') {
+      steps {
+        sh 'ssh ppcrmcl01 echo grep a sed na xml files'
+      }
+    }
   }
 }

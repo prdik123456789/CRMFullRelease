@@ -254,6 +254,7 @@ pipeline {
             node(label: 'JH') {
               bat(script: 'deploy_files.bat', returnStatus: true)
             }
+
           }
         }
         stage('BROWSER SCRIPTS, PUBLIC') {
@@ -261,6 +262,15 @@ pipeline {
             node(label: 'JH') {
               bat(script: 'deploy_files.bat', returnStatus: true)
             }
+
+          }
+        }
+        stage('CTL, IFB, UNIX SCRIPTS, SWT') {
+          steps {
+            node(label: 'JH') {
+              bat(script: 'deploy_files.bat', returnStatus: true)
+            }
+
           }
         }
       }

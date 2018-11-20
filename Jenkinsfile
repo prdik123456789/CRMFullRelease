@@ -313,5 +313,25 @@ ssh ppcrmcl01 echo /srv/bin/${CSAS_ENV}/crm/adm/shell/deployADM.ksh 1-1H4UUGQK
 ssh ppcrmcl01 echo /srv/bin/${CSAS_ENV}/crm/adm/shell/deployADM.ksh 1-1H4UUGQO'''
       }
     }
+    stage('ADM PostDeployment') {
+      steps {
+        echo 'ADM postdeploy'
+      }
+    }
+    stage('Updating Hosts') {
+      steps {
+        echo 'Update host on SIebel'
+      }
+    }
+    stage('Import CSOPS') {
+      steps {
+        echo 'Import CSOPS'
+      }
+    }
+    stage('Check outbound settings') {
+      steps {
+        sh 'ssh ppcrmcl01 echo check outbound settings wia SQL'
+      }
+    }
   }
 }

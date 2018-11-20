@@ -163,5 +163,10 @@ pipeline {
         }
       }
     }
+    stage('Odpojit OSB') {
+      steps {
+        echo 'Odpojení OSB'
+      }
+    }
   }
 }

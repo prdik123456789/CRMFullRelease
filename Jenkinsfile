@@ -278,7 +278,65 @@ pipeline {
             node(label: 'main') {
               sh 'ssh pbcrmcl01 echo /srv/bin/devc/crm/adm/shell/deploySRF.ksh'
             }
-
+          }
+        }     
+      }
+    }
+    stage('StartServer - Linux') {
+      parallel {
+        stage('pbcrmao01') {
+          steps {
+            sh 'ssh pbcrmao01 `echo restart_server.ksh`'
+          }
+        }
+        stage('pbcrmao02') {
+          steps {
+            sh 'ssh pbcrmao02 `echo restart_server.ksh`'
+          }
+        }
+        stage('pbcrmao01') {
+          steps {
+            sh 'ssh pbcrmao03 `echo restart_server.ksh`'
+          }
+        }
+        stage('ppcrmao01') {
+          steps {
+            sh 'ssh ppcrmao01 `echo restart_server.ksh`'
+          }
+        }
+        stage('ppcrmao02') {
+          steps {
+            sh 'ssh ppcrmao02 `echo restart_server.ksh`'
+          }
+        }
+        stage('ppcrmao03') {
+          steps {
+            sh 'ssh ppcrmao03 `echo restart_server.ksh`'
+          }
+        }
+        stage('pbcrmin01') {
+          steps {
+            sh 'ssh pbcrmin01 `hostname`'
+          }
+        }
+        stage('pbcrmin02') {
+          steps {
+            sh 'ssh pbcrmin02 `hostname`'
+          }
+        }
+        stage('ppcrmin01') {
+          steps {
+            sh 'ssh ppcrmin01 `hostname`'
+          }
+        }
+        stage('ppcrmin02') {
+          steps {
+            sh 'ssh ppcrmin02 `hostname`'
+          }
+        }
+        stage('crmp-s01') {
+          steps {
+            sh 'ssh crmp-s01 `hostname`'
           }
         }
       }
@@ -331,6 +389,11 @@ ssh ppcrmcl01 echo /srv/bin/${CSAS_ENV}/crm/adm/shell/deployADM.ksh 1-1H4UUGQO''
     stage('Check outbound settings') {
       steps {
         sh 'ssh ppcrmcl01 echo check outbound settings wia SQL'
+      }
+    }
+    stage('Genertate Siebel triggers') {
+      steps {
+        sh 'ssh ppcrmcl01 /srv/bin/${CSAS_ENV}/crm/adm/shell/gentrig.ksh crmp-s01'
       }
     }
   }

@@ -298,5 +298,10 @@ pipeline {
         echo 'A'
       }
     }
+    stage('Migrate Scripts before ADM') {
+      steps {
+        sh 'ssh ppcrmcl01 echo "spustit w18p_before_ADM_LST_OF_VAL.sql"'
+      }
+    }
   }
 }

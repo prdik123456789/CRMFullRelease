@@ -242,5 +242,10 @@ pipeline {
         sh 'ssh pbcrmao01 echo kontrola zastaveni siebelu'
       }
     }
+    stage('Deploy files') {
+      steps {
+        echo 'Deploy'
+      }
+    }
   }
 }

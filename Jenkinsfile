@@ -270,7 +270,13 @@ pipeline {
             node(label: 'JH') {
               bat(script: 'deploy_files.bat', returnStatus: true)
             }
-
+          }
+        }
+        stage('SRF') {
+          steps {
+            node(label: 'main') {
+              sh 'ssh pbcrmcl01 echo /srv/bin/devc/crm/adm/shell/deploySRF.ksh'
+            }
           }
         }
       }

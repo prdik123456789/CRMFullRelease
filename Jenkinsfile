@@ -166,7 +166,7 @@ pipeline {
     stage('Odpojit OSB') {
       parallel {
         stage('pbcrmao01 - OUT') {
-           steps {
+          steps {
             sh 'ssh pbcrmao01 echo odpojeni outbound'
           }
         }
@@ -226,6 +226,11 @@ pipeline {
           }
         }
       }
-    }  
+    }
+    stage('Kontrola odchozích front') {
+      steps {
+        sh 'ssh ppcrmcl01 echo "kontrola odchozich front v DB"'
+      }
+    }
   }
 }

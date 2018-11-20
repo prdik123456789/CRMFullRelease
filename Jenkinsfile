@@ -255,6 +255,14 @@ pipeline {
             node(label: 'JH')
           }
         }
+        stage('BROWSER SCRIPTS, PUBLIC') {
+          steps {
+            node(label: 'JH') {
+              echo 'pokus'
+            }
+
+          }
+        }
       }
     }
   }

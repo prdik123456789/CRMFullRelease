@@ -165,8 +165,68 @@ pipeline {
     }
     stage('Odpojit OSB') {
       steps {
-        echo 'Odpojení OSB'
+        echo 'OdpojenÃ­ OSB'
       }
+      stage('pbcrmao01 - OUT') {
+          steps {
+            sh 'ssh pbcrmao01 echo odpojeni outbound'
+          }
+        }
+        stage('pbcrmao02 - OUT') {
+          steps {
+            sh 'ssh pbcrmao02 echo odpojeni outbound'
+          }
+        }
+        stage('pbcrmao03 - OUT') {
+          steps {
+            sh 'ssh pbcrmao03 echo odpojeni outbound'
+          }
+        }
+        stage('ppcrmao01 - OUT') {
+          steps {
+            sh 'ssh ppcrmao01 echo odpojeni outbound'
+          }
+        }
+        stage('ppcrmao02 - OUT') {
+          steps {
+            sh 'ssh ppcrmao02 echo odpojeni outbound'
+          }
+        }
+        stage('ppcrmao03 - OUT') {
+          steps {
+            sh 'ssh ppcrmao03 echo odpojeni outbound'
+          }
+        }
+        stage('pbcrmin01 - IN') {
+          steps {
+            sh 'ssh pbcrmin01 echo odpojeni inbound'
+          }
+        }
+        stage('pbcrmin02 - IN') {
+          steps {
+            sh 'ssh pbcrmin02 echo odpojeni inbound'
+          }
+        }
+        stage('ppcrmin01 - IN') {
+          steps {
+            sh 'ssh ppcrmin01 echo odpojeni inbound'
+          }
+        }
+        stage('ppcrmin02 - IN') {
+          steps {
+            sh 'ssh ppcrmin02 echo odpojeni inbound'
+          }
+        }
+        stage('ppcrmcl01 - OUT') {
+          steps {
+            sh 'ssh ppcrmcl01 echo odpojeni outbound'
+          }
+        }
+        stage('pbcrmcl01 - OUT') {
+          steps {
+            sh 'ssh pbcrmcl01 echo odpojeni outbound'
+          }
+        }
     }
   }
 }

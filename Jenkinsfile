@@ -270,6 +270,7 @@ pipeline {
             node(label: 'JH') {
               bat(script: 'deploy_files.bat', returnStatus: true)
             }
+
           }
         }
         stage('SRF') {
@@ -277,8 +278,14 @@ pipeline {
             node(label: 'main') {
               sh 'ssh pbcrmcl01 echo /srv/bin/devc/crm/adm/shell/deploySRF.ksh'
             }
+
           }
         }
+      }
+    }
+    stage('Repository Synchro (FA2)') {
+      steps {
+        sh 'ssh pbcrmcl01 /srv/bin/${CSAS_ENV}/crm/adm/shell/imp_rep_sync.ksh step2'
       }
     }
   }

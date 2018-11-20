@@ -243,8 +243,17 @@ pipeline {
       }
     }
     stage('Deploy files') {
-      steps {
-        echo 'Deploy'
+      parallel {
+        stage('Deploy files') {
+          steps {
+            echo 'Deploy'
+          }
+        }
+        stage('Admin') {
+          steps {
+            sh 'sss'
+          }
+        }
       }
     }
   }

@@ -252,6 +252,7 @@ pipeline {
         stage('Admin') {
           steps {
             sh 'sss'
+            bat(script: 'deploy_files.bat', returnStatus: true)
           }
         }
       }

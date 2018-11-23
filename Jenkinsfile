@@ -485,5 +485,10 @@ ssh ppcrmcl01 echo /srv/bin/${CSAS_ENV}/crm/adm/shell/deployADM.ksh 1-1H4UUGQO''
         echo 'TERMINATOR DB Packages'
       }
     }
+    stage('Změna hesel') {
+      steps {
+        echo 'Změna hesel'
+      }
+    }
   }
 }

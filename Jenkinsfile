@@ -455,5 +455,35 @@ ssh ppcrmcl01 echo /srv/bin/${CSAS_ENV}/crm/adm/shell/deployADM.ksh 1-1H4UUGQO''
         }
       }
     }
+    stage('Siebel DB schema') {
+      steps {
+        echo 'Siebel DB schema'
+      }
+    }
+    stage('Siebel DB Packages') {
+      steps {
+        echo 'Siebel DB Packages'
+      }
+    }  
+    stage('SIEBSA DB schema') {
+      steps {
+        echo 'SIEBSA DB schema'
+      }
+    }
+    stage('SIEBSA DB Packages') {
+      steps {
+        echo 'SIEBSA DB Packages'
+      }
+    }
+    stage('TERMINATOR DB schema') {
+      steps {
+        echo 'TERMINATOR DB schema'
+      }
+    }
+    stage('TERMINATOR DB Packages') {
+      steps {
+        echo 'TERMINATOR DB Packages'
+      }
+    }
   }
 }

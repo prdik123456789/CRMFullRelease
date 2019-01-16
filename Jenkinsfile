@@ -278,8 +278,9 @@ pipeline {
             node(label: 'main') {
               sh 'ssh pbcrmcl01 echo /srv/bin/devc/crm/adm/shell/deploySRF.ksh'
             }
+
           }
-        }     
+        }
       }
     }
     stage('StartServer - Linux') {
@@ -464,7 +465,7 @@ ssh ppcrmcl01 echo /srv/bin/${CSAS_ENV}/crm/adm/shell/deployADM.ksh 1-1H4UUGQO''
       steps {
         echo 'Siebel DB Packages'
       }
-    }  
+    }
     stage('SIEBSA DB schema') {
       steps {
         echo 'SIEBSA DB schema'
